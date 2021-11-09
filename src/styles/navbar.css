@@ -1,0 +1,197 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --bg: #242526;
+  --border: 1px solid #474a4d;
+  --bg-accent: #484a4d;
+  --nav-size: 60px;
+  --speed: 500ms;
+  --text-color: #dadce1;
+  --red: rgb(230, 64, 64);
+  --light-red: #ffeaef;
+  --green: #48c773;
+  --light-green: #bfe5cb;
+  --purple: rgb(230, 64, 64);
+  --light-purple: #f8f0ff;
+  --turquoise: rgb(230, 64, 64);
+  --light-turquoise: #e5fbf7;
+  --blue: rgb(230, 64, 64);
+  --light-blue: #eaf1fc;
+  --yellow: #f5c401;
+}
+
+body,
+html {
+  font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+}
+nav span {
+  font-size: 30px;
+}
+
+.navbar {
+  padding: 0 1rem;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  box-shadow: 0 10px 6px -10px #777;
+}
+
+.navbarNav {
+  padding-top: 2em;
+  list-style: none;
+  text-align: center;
+  background-color: #fff;
+  position: absolute;
+  top: 65px;
+  width: 100vw;
+  height: calc(100vh - 65px);
+  transform: translateX(-10000px);
+  /* left: calc(100% - 10000px); */
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.navbarNav.active {
+  /* left: 0; */
+  transform: translateX(-1rem);
+}
+
+.navItem {
+  position: relative;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+.navItem a {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.Home a,
+.Contact a,
+.Donate a,
+.Customers a {
+  border-radius: 50px;
+}
+
+.Home a {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.Contact a {
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.Donate a {
+  border: 1px solid var(--turquoise);
+  color: var(--turquoise);
+}
+
+.Customers a {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+
+.hamburgerIcon {
+  width: 30px;
+  display: block;
+  background-color: var(--green);
+  height: 3px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.hamburgerIcon:after,
+.hamburgerIcon:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: var(--green);
+  position: absolute;
+  left: 5px;
+  border-radius: 50px;
+}
+
+.hamburgerIcon:after {
+  bottom: -10px;
+  left: 10px;
+}
+
+.hamburgerIcon:before {
+  bottom: 10px;
+  left: -5px;
+  width: 35px;
+}
+
+.logo {
+  width: 40px;
+}
+
+/************* DESKTOP STYLE **************************/
+@media screen and (min-width: 1025px) {
+  .navbarNav {
+    display: flex;
+    position: initial;
+    width: initial;
+    height: initial;
+    padding-top: 0;
+    transform: none;
+  }
+  /* underline animation is inspired by: https://codepen.io/jstn/pen/zuDst*/
+
+  .navItem a {
+    border: none;
+    display: inline-block;
+    width: 100px;
+  }
+  .navItem:after {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 25px;
+    position: absolute;
+    transition: all 0.3s linear;
+    bottom: -2px;
+    left: 0;
+  }
+
+  .Home:after {
+    background-color: var(--red);
+  }
+
+  .Contact:after {
+    background-color: var(--purple);
+  }
+
+  .Customers:after {
+    background-color: var(--turquoise);
+  }
+
+  .Donate:after {
+    background-color: var(--blue);
+  }
+
+  .navItem:hover:after {
+    width: 100%;
+  }
+
+  .hamburgerIcon {
+    display: none;
+  }
+}
+
